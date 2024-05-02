@@ -1,0 +1,22 @@
+.footer{
+    width: 85%;
+    margin: 0 auto;
+    color: grey;
+}
+.mat-icons{
+    color: white;
+    display: flex;
+    gap: 3%;
+    margin-left: 8%;
+}
+
+.FooterMainDiv{
+    display: flex;
+    justify-content: space-around;
+
+    align-items: center;
+    color: grey;
+}
+.FooterMainDiv div ul{
+    list-style-type: none;
+}

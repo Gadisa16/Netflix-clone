@@ -1,0 +1,27 @@
+.mainDiv{
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #111;
+    color: #fff;
+}
+.mainDiv img{
+    width: 85px;
+}
+.leftDiv ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 20px;
+    padding-left: 40px;
+}
+
+.rightDiv ul{
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 13px;
+    padding-right: 20px;
+}
