@@ -1,4 +1,4 @@
-import React from 'react';
+import {React, useState, useEffect} from 'react';
 import './Header.css';
 import netflixLogo from '../../assets/netflixLogo.png';
 
@@ -8,8 +8,20 @@ import AccountBoxOutlinedIcon from '@mui/icons-material/AccountBoxOutlined';
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
 
 function Header() {
+
+  const [change, setChange] = useState(false);
+
+  useEffect(() => {
+      window.addEventListener('scroll', () => {
+          if (window.scrollY > 200) {
+              setChange(true);
+          }
+          else setChange(false);
+      })
+  }, []);
+
   return (
-    <div className="mainDiv">
+    <div className={`mainDiv ${change && "showDiv"}`}>
         <div className='leftDiv'>
             <ul>
               <li><img src={netflixLogo} alt="Logo" /></li>

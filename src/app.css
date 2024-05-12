@@ -1,28 +1,14 @@
-/* :root {
-    --font-base: "lexend", sans-serif;
-    --font-second-base: "Inter", sans-serif;
-    background: #111;
-    --primary-color: #E5E5E5;
-    --secondary-color: #E50914;
-} */
-
-
-.inter-heading {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    font-style: normal;
-    font-variation-settings:
-        "slnt" 0;
-}
-
 *{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-size: 15px;
+    font-size: 14px;
 }
 
 body{
     background-color: #111;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+            'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+            sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
 }

@@ -17,7 +17,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
                 // console.log(fetchUrl)
                 // const request = await axios.get(`http://localhost:3000/api/${fetchUrl}`);
                 const request = await axios.get(fetchUrl);
-                // console.log(request)
+                console.log(request)
                 setMovie(request.data.results);
             } catch (error) {
                 console.log("error", error);
@@ -48,22 +48,29 @@ function Row({ title, fetchUrl, isLargeRow }) {
         },
     }
 
-    return (
-        <div className="row">
-            <h1>{title}</h1>
-            <div className="row__posters">
-                {movies?.map((movie, index) => (
+return (
+    <div className="row">
+        <h1>{title}</h1>
+        <div className="row__posters">
+            {movies?.map((movie, index) => (
+                <div key={index} className="row__posterContainer">
                     <img
                         onClick={() => handleClick(movie)}
-                        key={index} src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`} alt={movie.name} className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+                        src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
+                        alt={movie.name}
                     />
-                ))}
-            </div>
-            <div style={{ padding: '10px' }}>
-                {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
-            </div>
+
+                    <div className="row__posterTitle">{movie?.title || movie?.name || movie?.original_name}</div>
+                </div>
+            ))}
         </div>
-    )
+        
+        <div style={{ padding: '30px' }}>
+            {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+        </div>
+    </div>
+)
 }
 
 export default Row
+

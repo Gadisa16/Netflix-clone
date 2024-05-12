@@ -4,12 +4,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #111;
+    background-color: transparent;
+    z-index: 100;
     color: #fff;
 }
-.mainDiv img{
-    width: 85px;
+
+.showDiv{
+    background-color: #111;
+    transition: 0.5s ease-in;
 }
+
+.mainDiv img{
+    width: 6vw;
+}
+
 .leftDiv ul{
     display: flex;
     list-style: none;
@@ -25,3 +33,27 @@
     gap: 13px;
     padding-right: 20px;
 }
+
+@media screen and (max-width: 767px) {
+    .mainDiv {
+        flex-direction: column;
+    }
+
+    .leftDiv ul {
+        padding: 0;
+        margin-bottom: 2px;
+    }
+    .leftDiv ul li{
+        font-size: 1vw;
+        font-weight: 600;
+    }
+
+    .rightDiv ul {
+        margin-top: 6px;
+    }
+
+    .mainDiv img {
+        display: none;
+    }
+}
+

@@ -1,6 +1,6 @@
 .banner {
     color: white;
-    object-fit: contain;
+    object-fit: cover;
     height: 448px;
 }
 
@@ -32,10 +32,7 @@
     border: none;
     font-weight: 700;
     border-radius: 0.2vw;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
+    padding: 0.5rem 2rem;
     margin-right: 1rem;
     background-color: rgba(51, 51, 51, 0.5);
 }
@@ -43,7 +40,7 @@
 .banner__button:hover {
     color: #000;
     background-color: #c6c6c6;
-    transition: all0.2s;
+    transition: all 0.2s;
 }
 
 .banner__fadeBottom {
