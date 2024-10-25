@@ -58,6 +58,7 @@ return (
                         onClick={() => handleClick(movie)}
                         src={`${base_url}${isLargeRow ? movie.poster_path : movie.backdrop_path}`}
                         alt={movie.name}
+                        className={`row__poster ${isLargeRow && "row__posterLarge"}`}
                     />
 
                     <div className="row__posterTitle">{movie?.title || movie?.name || movie?.original_name}</div>

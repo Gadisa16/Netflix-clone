@@ -5,17 +5,18 @@
     justify-content: space-between;
     align-items: center;
     background-color: transparent;
-    z-index: 100;
     color: #fff;
+    z-index: 10;
 }
 
-.showDiv{
+.showDiv {
     background-color: #111;
-    transition: 0.5s ease-in;
+    transition: background-color 0.5s ease-in;
 }
 
 .mainDiv img{
     width: 6vw;
+    padding: 8px;
 }
 
 .leftDiv ul{

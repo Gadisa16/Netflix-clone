@@ -1,6 +1,6 @@
 import {React, useState, useEffect} from 'react';
 import './Header.css';
-import netflixLogo from '../../assets/netflixLogo.png';
+import netflixLogo from "../../assets/netflix-logo-text-emblem-31.png"
 
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
