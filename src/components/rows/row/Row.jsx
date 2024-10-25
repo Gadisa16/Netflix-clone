@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import "./row.css";
-import axios from "../../../utils/Axios";
+import axios from "../../../utils/axios";
 import movieTrailer from 'movie-trailer';
 import YouTube from 'react-youtube';
 
@@ -14,10 +14,8 @@ function Row({ title, fetchUrl, isLargeRow }) {
     useEffect(() => {
         (async () => {
             try {
-                // console.log(fetchUrl)
-                // const request = await axios.get(`http://localhost:3000/api/${fetchUrl}`);
                 const request = await axios.get(fetchUrl);
-                console.log(request)
+                // console.log(request.data.results)
                 setMovie(request.data.results);
             } catch (error) {
                 console.log("error", error);
