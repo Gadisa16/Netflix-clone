@@ -3,29 +3,30 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - master
+      - master  # Change this to 'main' if that's your default branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # Updated to v3
+        uses: actions/checkout@v3  # Updated to the latest version
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3  # Updated to v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3  # Updated to the latest version
         with:
-          node-version: '16'
+          node-version: '16'  # Use Node.js 16 for compatibility
 
       - name: Install dependencies
         run: npm install
 
       - name: Build project
         run: npm run build
+        env:
+          VITE_API_KEY: ${{ secrets.VITE_API_KEY }}  # Ensure VITE_API_KEY is set in GitHub Secrets
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
-          github_token: ${{ secrets.VITE_API_KEY }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}  # Use the default GITHUB_TOKEN for permissions
           publish_dir: ./dist
