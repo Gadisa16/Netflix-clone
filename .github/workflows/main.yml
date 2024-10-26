@@ -24,6 +24,7 @@ jobs:
         run: npm run build
         env:
           VITE_API_KEY: ${{ secrets.VITE_API_KEY }}  # Ensure VITE_API_KEY is set in GitHub Secrets
+          VITE_GOOGLE_ANALYTICS_ID: ${{ secrets.VITE_GOOGLE_ANALYTICS_ID }}
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
