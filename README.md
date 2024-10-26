@@ -70,3 +70,7 @@ The project is set up to be deployed using GitHub Actions for continuous integra
 ## GitHub Actions Workflow
 
 A GitHub Actions workflow is included in the `.github/workflows/` directory to automate the build and deployment process. This ensures that your application is built and deployed to production whenever you push changes to the main branch.
+
+## Google Analytics
+
+This project includes Google Analytics for practice purposes. It is used to track page views and user interactions within the application. The tracking is implemented using the `react-ga4` library.
