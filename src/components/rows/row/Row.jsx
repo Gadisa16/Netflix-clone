@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import "./row.css";
 import axios from "../../../utils/axios";
 import movieTrailer from 'movie-trailer';
@@ -7,6 +7,7 @@ import YouTube from 'react-youtube';
 function Row({ title, fetchUrl, isLargeRow }) {
     const [movies, setMovie] = useState([]);
     const [trailerUrl, setTrailerUrl] = useState("");
+    const Location = useRef(null);
 
     const base_url = "https://image.tmdb.org/t/p/original";
 
@@ -25,15 +26,15 @@ function Row({ title, fetchUrl, isLargeRow }) {
 
     const handleClick = (movie) => {
         if (trailerUrl) {
-            setTrailerUrl('')
+            setTrailerUrl('');
+
         } else {
             movieTrailer(movie?.title || movie?.name || movie?.original_name)
                 .then((url) => {
-                    // console.log(url)
-                    const urlParams = new URLSearchParams(new URL(url).search)
-                    // console.log(urlParams)
-                    // console.log(urlParams.get('v'))
+                    const url_query = new URL(url).search; // ?v=5xVh-7ywKpE =>to parse (from string to url) and get url query (part after ?)
+                    const urlParams = new URLSearchParams(url_query); // enable us (provide us the methods) to get the value of the query
                     setTrailerUrl(urlParams.get('v'));
+                    Location.current?.scrollIntoView({ behavior: "smooth" });
                 })
         }
     }
@@ -42,7 +43,7 @@ function Row({ title, fetchUrl, isLargeRow }) {
         height: '390',
         width: "100%",
         playerVars: {
-            autoplay: 1,
+            autoplay: 1, // to autoplay the video when it loads
         },
     }
 
@@ -64,7 +65,7 @@ return (
             ))}
         </div>
         
-        <div style={{ padding: '30px' }}>
+        <div ref = {Location} style={{ padding: '30px' }}>
             {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
         </div>
     </div>
